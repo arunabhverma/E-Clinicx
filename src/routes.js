@@ -1,6 +1,8 @@
 import React from 'react'
 
 // const HospitalDashboard = React.lazy(() => import('./global/views/dashboard/Dashboard'))
+const Home = React.lazy(() => import('../src/home'))
+
 const HospitalDashboard = React.lazy(() => import('../src/hospital/views/dashboard/Dashboard'))
 const LabDashboard = React.lazy(() => import('../src/lab/views/dashboard/Dashboard'))
 const ScanCenterDashboard = React.lazy(() => import('../src/scanCenter/views/dashboard/Dashboard'))
@@ -63,7 +65,7 @@ const Toasts = React.lazy(() => import('./global/views/notifications/toasts/Toas
 const Widgets = React.lazy(() => import('./global/views/widgets/Widgets'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Home', element: Home },
 
   { path: '/hospital', name: 'Hospital', element: Hospital },
   { path: '/scanCenter', name: 'ScanCenter', element: ScanCenter },

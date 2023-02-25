@@ -23,6 +23,7 @@ const Doctor = React.lazy(() => import('./doctor'))
 const Lab = React.lazy(() => import('./lab'))
 const ScanCenter = React.lazy(() => import('./scanCenter'))
 const Ambulance = React.lazy(() => import('./ambulance'))
+const Home = React.lazy(() => import('./home'))
 
 class App extends Component {
   render() {
@@ -41,6 +42,8 @@ class App extends Component {
             <Route exact path="/scanCenter" name="ScanCenter" element={<ScanCenter />} />
             <Route exact path="/lab" name="Lab" element={<Lab />} />
             <Route exact path="/ambulance" name="Ambulance" element={<Ambulance />} />
+
+            <Route exact path="/" name="Home" element={<Home />} />
 
             <Route path="*" name="Home" element={<DefaultLayout />} />
           </Routes>
