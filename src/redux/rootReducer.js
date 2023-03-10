@@ -1,5 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
+//admin
+import adminSettingReducer from '../admin/redux/settings/slice'
+
 //ambulance
 import ambulanceAuthReducer from '../ambulance/redux/auth/slice'
 
@@ -16,6 +19,7 @@ import labAuthReducer from '../lab/redux/auth/slice'
 import patientAuthReducer from '../patient/redux/auth/slice'
 
 const appReducer = combineReducers({
+  adminSettingReducer,
   ambulanceAuthReducer,
   doctorAuthReducer,
   hospitalAuthReducer,
