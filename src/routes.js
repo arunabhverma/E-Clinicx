@@ -8,6 +8,7 @@ const LabDashboard = React.lazy(() => import('../src/lab/views/dashboard/Dashboa
 const ScanCenterDashboard = React.lazy(() => import('../src/scanCenter/views/dashboard/Dashboard'))
 const AmbulanceDashboard = React.lazy(() => import('../src/ambulance/views/dashboard/Dashboard'))
 
+const Admin = React.lazy(() => import('./admin'))
 const Hospital = React.lazy(() => import('./hospital'))
 const Lab = React.lazy(() => import('./lab'))
 const ScanCenter = React.lazy(() => import('./scanCenter'))
@@ -67,6 +68,7 @@ const Widgets = React.lazy(() => import('./global/views/widgets/Widgets'))
 const routes = [
   { path: '/', exact: true, name: 'Home', element: Home },
 
+  { path: '/admin', name: 'Admin', element: Admin },
   { path: '/hospital', name: 'Hospital', element: Hospital },
   { path: '/scanCenter', name: 'ScanCenter', element: ScanCenter },
   { path: '/lab', name: 'Lab', element: Lab },

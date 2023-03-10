@@ -1,5 +1,8 @@
 import { all } from 'redux-saga/effects'
 
+//admin
+import adminSettingSaga from '../admin/redux/settings/saga'
+
 //ambulance
 import ambulanceAuthSaga from '../ambulance/redux/auth/saga'
 
@@ -17,6 +20,7 @@ import patientAuthSaga from '../patient/redux/auth/saga'
 
 export default function* rootSaga() {
   yield all([
+    adminSettingSaga(),
     ambulanceAuthSaga(),
     doctorAuthSaga(),
     hospitalAuthSaga(),
