@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { CContainer, CSpinner } from '@coreui/react'
 
 // routes config
 import routes from '../../routes'
+import Dashboard from '../views/dashboard/Dashboard'
 
 const AppContent = () => {
   return (
@@ -23,7 +24,7 @@ const AppContent = () => {
               )
             )
           })}
-          <Route path="/" element={<Navigate to="dashboard" replace />} />
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </Suspense>
     </CContainer>
