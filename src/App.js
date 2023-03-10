@@ -1,5 +1,5 @@
-import React, { Component, Suspense } from 'react'
-import { BrowserRouter, Route, Routes, useRoutes } from 'react-router-dom'
+import React, { Suspense } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './global/scss/style.scss'
 
 const loading = (
@@ -9,7 +9,7 @@ const loading = (
 )
 
 // Containers
-const DefaultLayout = React.lazy(() => import('./global/layout/DefaultLayout'))
+// const DefaultLayout = React.lazy(() => import('./global/layout/DefaultLayout'))
 
 // Pages
 const Login = React.lazy(() => import('./global/views/pages/login/Login'))
@@ -18,9 +18,9 @@ const Page404 = React.lazy(() => import('./global/views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./global/views/pages/page500/Page500'))
 
 const Admin = React.lazy(() => import('./admin'))
-const Patient = React.lazy(() => import('./patient'))
+// const Patient = React.lazy(() => import('./patient'))
 const Hospital = React.lazy(() => import('./hospital'))
-const Doctor = React.lazy(() => import('./doctor'))
+// const Doctor = React.lazy(() => import('./doctor'))
 const Lab = React.lazy(() => import('./lab'))
 const ScanCenter = React.lazy(() => import('./scanCenter'))
 const Ambulance = React.lazy(() => import('./ambulance'))

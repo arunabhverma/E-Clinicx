@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CButton, CContainer, CSpinner, CTable } from '@coreui/react'
+import { CContainer, CSpinner, CTable } from '@coreui/react'
 import { getVisitTypeData } from 'src/admin/redux/settings/slice'
 import '../../../global/scss/style.scss'
 
-const handleEdit = () => {}
-const handleDelete = () => {}
+// const handleEdit = () => {}
+// const handleDelete = () => {}
 
 const columns = [
   {
@@ -31,6 +31,7 @@ const VisitType = () => {
 
   useEffect(() => {
     getVisitTypeApi()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const getVisitTypeApi = () => {
