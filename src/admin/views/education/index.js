@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 import { Box, Stack, IconButton, Button } from '@mui/material'
 import { DataGrid, GridToolbarContainer, GridToolbarFilterButton } from '@mui/x-data-grid'
-import {
-  getEducationData,
-  getSpecialityData,
-  addSpecialityData,
-  deleteSpecialityData,
-  updateSpecialityData,
-} from 'src/admin/redux/settings/slice'
+// import {
+//   getEducationData,
+//   getSpecialityData,
+//   addSpecialityData,
+//   deleteSpecialityData,
+//   updateSpecialityData,
+// } from 'src/admin/redux/settings/slice'
 import { Delete as DeleteIcon, Edit as EditIcon, Add as AddIcon } from '@mui/icons-material'
 import UpdateEducation from './updateEducation'
 import DeleteModal from '../../../global/components/modals'
@@ -25,7 +25,7 @@ const CustomToolbar = () => {
 
 const Education = () => {
   const { educations, educationsLoading } = useSelector((state) => state.adminSettingReducer)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const [state, setState] = useState({
     deleteModal: null,
@@ -63,7 +63,7 @@ const Education = () => {
   }
 
   const onDoneUpdateEducation = (title, data) => {
-    let rest = { created_by: 0, created_by_id: 0, updated_by: 0, updated_by_id: 0 }
+    // let rest = { created_by: 0, created_by_id: 0, updated_by: 0, updated_by_id: 0 }
     onCloseUpdateEducation()
     switch (title) {
       case 'Add Education': {

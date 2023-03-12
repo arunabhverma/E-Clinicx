@@ -9,9 +9,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
-import Typography from '@mui/material/Typography'
-import { Stack, TextareaAutosize, TextField } from '@mui/material'
-import { CFormTextarea } from '@coreui/react'
+import { Stack } from '@mui/material'
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {

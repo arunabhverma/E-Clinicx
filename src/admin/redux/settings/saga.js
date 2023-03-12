@@ -35,21 +35,21 @@ import {
   getSpecialityDataSuccess,
 
   //add Education
-  addEducationData,
-  addEducationDataFailed,
-  addEducationDataSuccess,
-  //update Education
-  updateEducationData,
-  updateEducationDataFailed,
-  updateEducationDataSuccess,
-  //delete Education
-  deleteEducationData,
-  deleteEducationDataFailed,
-  deleteEducationDataSuccess,
-  //get Education
-  getEducationData,
-  getEducationDataFailed,
-  getEducationDataSuccess,
+  // addEducationData,
+  // addEducationDataFailed,
+  // addEducationDataSuccess,
+  // //update Education
+  // updateEducationData,
+  // updateEducationDataFailed,
+  // updateEducationDataSuccess,
+  // //delete Education
+  // deleteEducationData,
+  // deleteEducationDataFailed,
+  // deleteEducationDataSuccess,
+  // //get Education
+  // getEducationData,
+  // getEducationDataFailed,
+  // getEducationDataSuccess,
 } from './slice'
 import { API } from '../../services'
 
