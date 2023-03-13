@@ -1,14 +1,15 @@
 import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { CContainer, CSpinner } from '@coreui/react'
+import { CContainer } from '@coreui/react'
 
 // routes config
 import routes from '../routes'
+import Loading from 'src/global/components/loading'
 
 const AppContent = () => {
   return (
     <CContainer lg>
-      <Suspense fallback={<CSpinner color="primary" />}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           {routes.map((route, idx) => {
             return (
