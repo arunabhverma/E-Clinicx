@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 import { Box, Stack, IconButton, Button } from '@mui/material'
 import { DataGrid, GridToolbarContainer, GridToolbarFilterButton } from '@mui/x-data-grid'
-// import {
-//   getEducationData,
-//   getSpecialityData,
-//   addSpecialityData,
-//   deleteSpecialityData,
-//   updateSpecialityData,
-// } from 'src/admin/redux/settings/slice'
+import {
+  addEducationData,
+  deleteEducationData,
+  getEducationData,
+  updateEducationData,
+} from 'src/admin/redux/settings/slice'
 import { Delete as DeleteIcon, Edit as EditIcon, Add as AddIcon } from '@mui/icons-material'
 import UpdateEducation from './updateEducation'
 import DeleteModal from '../../../global/components/modals'
@@ -24,8 +23,8 @@ const CustomToolbar = () => {
 }
 
 const Education = () => {
-  const { educations, educationsLoading } = useSelector((state) => state.adminSettingReducer)
-  // const dispatch = useDispatch()
+  const { educations, educationLoading } = useSelector((state) => state.adminSettingReducer)
+  const dispatch = useDispatch()
 
   const [state, setState] = useState({
     deleteModal: null,
@@ -38,11 +37,11 @@ const Education = () => {
   }, [])
 
   const getEducationDataApi = () => {
-    // dispatch(getEducationData())
+    dispatch(getEducationData())
   }
 
   const deleteRow = () => {
-    // dispatch(deleteSpecialityData(state.deleteModal))
+    dispatch(deleteEducationData(state.deleteModal))
     onCloseDeleteModal()
   }
 
@@ -63,24 +62,24 @@ const Education = () => {
   }
 
   const onDoneUpdateEducation = (title, data) => {
-    // let rest = { created_by: 0, created_by_id: 0, updated_by: 0, updated_by_id: 0 }
+    let rest = { created_by: 0, created_by_id: 0, updated_by: 0, updated_by_id: 0 }
     onCloseUpdateEducation()
     switch (title) {
       case 'Add Education': {
-        // dispatch(addSpecialityData({ name: data.name, description: data.description, ...rest }))
+        dispatch(addEducationData({ name: data.name, description: data.description, ...rest }))
         break
       }
       case 'Edit Education': {
-        // dispatch(
-        //   updateSpecialityData({
-        //     id: data.id,
-        //     data: {
-        //       name: data.name,
-        //       description: data.description,
-        //       ...rest,
-        //     },
-        //   }),
-        // )
+        dispatch(
+          updateEducationData({
+            id: data.id,
+            data: {
+              name: data.name,
+              description: data.description,
+              ...rest,
+            },
+          }),
+        )
         break
       }
       default: {
@@ -148,12 +147,12 @@ const Education = () => {
       <Box backgroundColor={'white'} padding={4} borderRadius={2}>
         <div style={{ marginBottom: 10 }}>
           <Button variant="outlined" startIcon={<AddIcon />} onClick={openAddEducationModal}>
-            Add Speciality
+            Add Education
           </Button>
         </div>
         <Box sx={{ height: 350, width: '100%' }}>
           <DataGrid
-            loading={educationsLoading}
+            loading={educationLoading}
             rows={educations}
             columns={columns}
             hideFooterPagination
@@ -169,8 +168,8 @@ const Education = () => {
         <DeleteModal
           isOpen={state.deleteModal}
           onClose={onCloseDeleteModal}
-          title={'Delete Speciality'}
-          message={'Do you really want to delete this Speciality'}
+          title={'Delete Education'}
+          message={'Do you really want to delete this Education'}
           firstButtonText={'CANCEL'}
           secondButtonText={'DELETE'}
           onDone={() => deleteRow()}

@@ -7,12 +7,14 @@ const slice = createSlice({
     visitTypes: [],
     specialities: [],
     educations: [],
+    specialInterests: [],
 
     errorMsg: '',
 
     visitLoading: false,
     specialityLoading: false,
     educationLoading: false,
+    specialInterestLoading: false,
   },
   reducers: {
     //addVisitType
@@ -104,54 +106,97 @@ const slice = createSlice({
     },
     updateSpecialityDataSuccess: (state) => {},
     updateSpecialityDataFailed: (state) => {},
+
+    //Get Education
+    getEducationData: (state) => {
+      state.educationLoading = true
+      state.errorMsg = ''
+    },
+    getEducationDataSuccess: (state, { payload: { payload } }) => {
+      state.educationLoading = false
+      state.educations = payload.data
+    },
+    getEducationDataFailed: (state, { payload }) => {
+      state.token = null
+      state.educationLoading = false
+    },
+
+    //Add Education
+    addEducationData: (state, { payload }) => {
+      const last = state.educations[state.educations.length - 1]?.id || 0
+      state.educations = [
+        ...state.educations,
+        { id: last + 1, ...payload, created_at: moment().format() },
+      ]
+    },
+    addEducationDataSuccess: (state) => {},
+    addEducationDataFailed: (state) => {},
+
+    //delete Education
+    deleteEducationData: (state, { payload }) => {
+      state.educations = state.educations.filter((item) => item.id !== payload)
+    },
+    deleteEducationDataSuccess: (state, { payload }) => {},
+    deleteEducationDataFailed: (state, { payload }) => {},
+
+    //update Education
+    updateEducationData: (state, { payload }) => {
+      state.educations = state.educations.map((item) => {
+        if (item.id === payload.id) {
+          return { ...item, ...payload.data }
+        } else {
+          return item
+        }
+      })
+    },
+    updateEducationDataSuccess: (state) => {},
+    updateEducationDataFailed: (state) => {},
+
+    //Get SpecialInterest
+    getSpecialInterestData: (state) => {
+      state.specialInterestLoading = true
+      state.errorMsg = ''
+    },
+    getSpecialInterestDataSuccess: (state, { payload: { payload } }) => {
+      state.specialInterestLoading = false
+      state.specialInterests = payload.data
+    },
+    getSpecialInterestDataFailed: (state, { payload }) => {
+      state.token = null
+      state.specialInterestLoading = false
+    },
+
+    //Add SpecialInterest
+    addSpecialInterestData: (state, { payload }) => {
+      const last = state.specialInterests[state.specialInterests.length - 1]?.id || 0
+      state.specialInterests = [
+        ...state.specialInterests,
+        { id: last + 1, ...payload, created_at: moment().format() },
+      ]
+    },
+    addSpecialInterestDataSuccess: (state) => {},
+    addSpecialInterestDataFailed: (state) => {},
+
+    //delete SpecialInterest
+    deleteSpecialInterestData: (state, { payload }) => {
+      state.specialInterests = state.specialInterests.filter((item) => item.id !== payload)
+    },
+    deleteSpecialInterestDataSuccess: (state, { payload }) => {},
+    deleteSpecialInterestDataFailed: (state, { payload }) => {},
+
+    //update SpecialInterest
+    updateSpecialInterestData: (state, { payload }) => {
+      state.specialInterests = state.specialInterests.map((item) => {
+        if (item.id === payload.id) {
+          return { ...item, ...payload.data }
+        } else {
+          return item
+        }
+      })
+    },
+    updateSpecialInterestDataSuccess: (state) => {},
+    updateSpecialInterestDataFailed: (state) => {},
   },
-
-  //get education
-  // getEducationData: () => {},
-  // getEducationData: (state) => {
-  //   // console.log('asdf')
-  //   // state.educationLoading = true
-  //   // state.errorMsg = ''
-  // },
-  // getEducationDataSuccess: (state, { payload: { payload } }) => {
-  //   state.educationLoading = false
-  //   state.educations = payload.data
-  // },
-  // getEducationDataFailed: (state, { payload }) => {
-  //   state.token = null
-  //   state.educationLoading = false
-  // },
-
-  // //Add Education
-  // addEducationData: (state, { payload }) => {
-  //   const last = state.educations[state.educations.length - 1]?.id || 0
-  //   state.educations = [
-  //     ...state.educations,
-  //     { id: last + 1, ...payload, created_at: moment().format() },
-  //   ]
-  // },
-  // addEducationDataSuccess: (state) => {},
-  // addEducationDataFailed: (state) => {},
-
-  // //delete Education
-  // deleteEducationData: (state, { payload }) => {
-  //   state.educations = state.educations.filter((item) => item.id !== payload)
-  // },
-  // deleteEducationDataSuccess: (state, { payload }) => {},
-  // deleteEducationDataFailed: (state, { payload }) => {},
-
-  // //update Education
-  // updateEducationData: (state, { payload }) => {
-  //   state.educations = state.educations.map((item) => {
-  //     if (item.id === payload.id) {
-  //       return { ...item, ...payload.data }
-  //     } else {
-  //       return item
-  //     }
-  //   })
-  // },
-  // updateEducationDataSuccess: (state) => {},
-  // updateEducationDataFailed: (state) => {},
 })
 
 export const {
@@ -190,21 +235,38 @@ export const {
   updateSpecialityDataFailed,
 
   //get education
-  // getEducationData,
-  // getEducationDataFailed,
-  // getEducationDataSuccess,
-  // //add education
-  // addEducationData,
-  // addEducationDataSuccess,
-  // addEducationDataFailed,
-  // //delete education
-  // deleteEducationData,
-  // deleteEducationDataSuccess,
-  // deleteEducationDataFailed,
-  // //update education
-  // updateEducationData,
-  // updateEducationDataSuccess,
-  // updateEducationDataFailed,
+  getEducationData,
+  getEducationDataFailed,
+  getEducationDataSuccess,
+  //add education
+  addEducationData,
+  addEducationDataSuccess,
+  addEducationDataFailed,
+  //delete education
+  deleteEducationData,
+  deleteEducationDataSuccess,
+  deleteEducationDataFailed,
+  //update education
+  updateEducationData,
+  updateEducationDataSuccess,
+  updateEducationDataFailed,
+
+  //get special interest
+  getSpecialInterestData,
+  getSpecialInterestDataFailed,
+  getSpecialInterestDataSuccess,
+  //add special interest
+  addSpecialInterestData,
+  addSpecialInterestDataSuccess,
+  addSpecialInterestDataFailed,
+  //delete special interest
+  deleteSpecialInterestData,
+  deleteSpecialInterestDataSuccess,
+  deleteSpecialInterestDataFailed,
+  //update special interest
+  updateSpecialInterestData,
+  updateSpecialInterestDataSuccess,
+  updateSpecialInterestDataFailed,
 } = slice.actions
 
 export default slice.reducer

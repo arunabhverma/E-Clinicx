@@ -34,5 +34,11 @@ export const API = {
     deleteEducation: (id) => instance.delete(`${Config.EDUCATION}/${id}`),
     updateEducation: (props) => instance.put(`${Config.EDUCATION}/${props.id}`, props.data),
     addEducation: (data) => instance.post(Config.EDUCATION, data),
+    //specialInterest
+    specialInterest: () => instance.get(Config.SPECIAL_INTEREST),
+    deleteSpecialInterest: (id) => instance.delete(`${Config.SPECIAL_INTEREST}/${id}`),
+    updateSpecialInterest: (props) =>
+      instance.put(`${Config.SPECIAL_INTEREST}/${props.id}`, props.data),
+    addSpecialInterest: (data) => instance.post(Config.SPECIAL_INTEREST, data),
   },
 }

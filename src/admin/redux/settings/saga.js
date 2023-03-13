@@ -35,21 +35,38 @@ import {
   getSpecialityDataSuccess,
 
   //add Education
-  // addEducationData,
-  // addEducationDataFailed,
-  // addEducationDataSuccess,
-  // //update Education
-  // updateEducationData,
-  // updateEducationDataFailed,
-  // updateEducationDataSuccess,
-  // //delete Education
-  // deleteEducationData,
-  // deleteEducationDataFailed,
-  // deleteEducationDataSuccess,
-  // //get Education
-  // getEducationData,
-  // getEducationDataFailed,
-  // getEducationDataSuccess,
+  addEducationData,
+  addEducationDataFailed,
+  addEducationDataSuccess,
+  //update Education
+  updateEducationData,
+  updateEducationDataFailed,
+  updateEducationDataSuccess,
+  //delete Education
+  deleteEducationData,
+  deleteEducationDataFailed,
+  deleteEducationDataSuccess,
+  //get Education
+  getEducationData,
+  getEducationDataFailed,
+  getEducationDataSuccess,
+
+  //add Education
+  addSpecialInterestData,
+  addSpecialInterestDataFailed,
+  addSpecialInterestDataSuccess,
+  //update Education
+  updateSpecialInterestData,
+  updateSpecialInterestDataFailed,
+  updateSpecialInterestDataSuccess,
+  //delete Education
+  deleteSpecialInterestData,
+  deleteSpecialInterestDataFailed,
+  deleteSpecialInterestDataSuccess,
+  //get Education
+  getSpecialInterestData,
+  getSpecialInterestDataFailed,
+  getSpecialInterestDataSuccess,
 } from './slice'
 import { API } from '../../services'
 
@@ -157,57 +174,109 @@ function* deleteSpeciality({ type, payload }) {
   }
 }
 
-// function* addEducation({ type, payload }) {
-//   try {
-//     const response = yield call(API.settingApi.addEducation, payload)
-//     if (response.data && response.status === 200) {
-//       yield put(addEducationDataSuccess({ payload: response?.data }))
-//     } else {
-//       yield put(addEducationDataFailed({ message: response.message }))
-//     }
-//   } catch (error) {
-//     yield put(addEducationDataFailed({ message: error?.message }))
-//   }
-// }
+function* addEducation({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.addEducation, payload)
+    if (response.data && response.status === 200) {
+      yield put(addEducationDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(addEducationDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(addEducationDataFailed({ message: error?.message }))
+  }
+}
 
-// function* updateEducation({ type, payload }) {
-//   try {
-//     const response = yield call(API.settingApi.updateEducation, payload)
-//     if (response.data && response.status === 200) {
-//       yield put(updateEducationDataSuccess({ payload: response?.data }))
-//     } else {
-//       yield put(updateEducationDataFailed({ message: response.message }))
-//     }
-//   } catch (error) {
-//     yield put(updateEducationDataFailed({ message: error?.message }))
-//   }
-// }
+function* updateEducation({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.updateEducation, payload)
+    if (response.data && response.status === 200) {
+      yield put(updateEducationDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(updateEducationDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(updateEducationDataFailed({ message: error?.message }))
+  }
+}
 
-// function* getEducation() {
-//   // try {
-//   //   const response = yield call(API.settingApi.education)
-//   //   if (response.data && response.status === 200) {
-//   //     yield put(getEducationDataSuccess({ payload: response?.data }))
-//   //   } else {
-//   //     yield put(getEducationDataFailed({ message: response.message }))
-//   //   }
-//   // } catch (error) {
-//   //   yield put(getEducationDataFailed({ message: error?.message }))
-//   // }
-// }
+function* getEducation() {
+  try {
+    const response = yield call(API.settingApi.education)
+    if (response.data && response.status === 200) {
+      yield put(getEducationDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(getEducationDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(getEducationDataFailed({ message: error?.message }))
+  }
+}
 
-// function* deleteEducation({ type, payload }) {
-//   try {
-//     const response = yield call(API.settingApi.deleteEducation, payload)
-//     if (response.data && response.status === 200) {
-//       yield put(deleteEducationDataSuccess({ payload: response?.data }))
-//     } else {
-//       yield put(deleteEducationDataFailed({ message: response.message }))
-//     }
-//   } catch (error) {
-//     yield put(deleteEducationDataFailed({ message: error?.message }))
-//   }
-// }
+function* deleteEducation({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.deleteEducation, payload)
+    if (response.data && response.status === 200) {
+      yield put(deleteEducationDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(deleteEducationDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(deleteEducationDataFailed({ message: error?.message }))
+  }
+}
+
+function* addSpecialInterest({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.addSpecialInterest, payload)
+    if (response.data && response.status === 200) {
+      yield put(addSpecialInterestDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(addSpecialInterestDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(addSpecialInterestDataFailed({ message: error?.message }))
+  }
+}
+
+function* updateSpecialInterest({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.updateSpecialInterest, payload)
+    if (response.data && response.status === 200) {
+      yield put(updateSpecialInterestDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(updateSpecialInterestDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(updateSpecialInterestDataFailed({ message: error?.message }))
+  }
+}
+
+function* getSpecialInterest() {
+  try {
+    const response = yield call(API.settingApi.specialInterest)
+    if (response.data && response.status === 200) {
+      yield put(getSpecialInterestDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(getSpecialInterestDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(getSpecialInterestDataFailed({ message: error?.message }))
+  }
+}
+
+function* deleteSpecialInterest({ type, payload }) {
+  try {
+    const response = yield call(API.settingApi.deleteSpecialInterest, payload)
+    if (response.data && response.status === 200) {
+      yield put(deleteSpecialInterestDataSuccess({ payload: response?.data }))
+    } else {
+      yield put(deleteSpecialInterestDataFailed({ message: response.message }))
+    }
+  } catch (error) {
+    yield put(deleteSpecialInterestDataFailed({ message: error?.message }))
+  }
+}
 
 function* settingSaga() {
   yield takeEvery(updateVisitTypeData, updateVisitType)
@@ -220,10 +289,15 @@ function* settingSaga() {
   yield takeEvery(getSpecialityData, getSpeciality)
   yield takeEvery(deleteSpecialityData, deleteSpeciality)
 
-  // yield takeEvery(updateEducationData, updateEducation)
-  // yield takeEvery(addEducationData, addEducation)
-  // yield takeEvery(getEducationData, getEducation)
-  // yield takeEvery(deleteEducationData, deleteEducation)
+  yield takeEvery(updateEducationData, updateEducation)
+  yield takeEvery(addEducationData, addEducation)
+  yield takeEvery(getEducationData, getEducation)
+  yield takeEvery(deleteEducationData, deleteEducation)
+
+  yield takeEvery(updateSpecialInterestData, updateSpecialInterest)
+  yield takeEvery(addSpecialInterestData, addSpecialInterest)
+  yield takeEvery(getSpecialInterestData, getSpecialInterest)
+  yield takeEvery(deleteSpecialInterestData, deleteSpecialInterest)
 }
 
 export default settingSaga
